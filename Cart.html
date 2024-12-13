@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cart</title>
+    <link rel="SHORTCUT ICON" href="image/cart.png" type="image/x-icon" />
+
+    <link rel="stylesheet" href="Cart.css">
+    <style>
+
+    </style>
+    <script src="Cart.js"></script>
+    <script src="home.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <a href="home.html"><img src="image/logo.png" alt=""></a>
+        </div>
+        <div class="menu">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="#">Shop</a></li>
+                <li><a href="#">Sale</a></li>
+                <li><a href="#">NEWS</a></li>
+                <li><a href="#">Contact Us</a></li>
+
+            </ul>
+        </div>
+        <div class="Top_Right">
+            <div class="cart"><a href="Cart.html"><img src="image/cart.png" alt=""></a></div>
+            <div class="search">
+            </div>
+            <div class="DangNhap">
+                <a href="DangNhap.html">Đăng nhập</a>
+                <a href="#">|</a>
+                <a href="DangKy.html">Đăng ký</a>
+            </div>
+        </div>
+    </header>
+    <div id="container">
+        <div class="title">
+            <div class="infor">Thông tin Sản Phẩm</div>
+            <div class="price">Giá</div>
+            <div class="quantity">Số lượng</div>
+            <div class="total">Thành tiền</div>
+            <div class="delete">Xóa</div>
+        </div>
+        <!-- <div class="content">
+            <div class="infor">
+                <img src="image/product5.jpg" alt="">
+                <h5>LOGO CORNROW" TEE IN WHITE</h5>
+                <p>Size: M</p>
+            </div>
+            <div class="price">500.000 đ</div>
+            <div class="quantity"><input type="number" placeholder="1"
+                    style="width: 50%; text-align: center;"></div>
+            <div class="total">500.000 đ</div>
+            <div class="delete">Xóa</div>
+        </div> -->
+        <!-- <div class="content">
+            <div class="infor">
+                <img id="img" src="image/product10.jpg" alt="">
+                <h5 id="name">DISTRESSED FLARE DENIM IN BLUE</h5>
+                <p>Size: M</p>
+            </div>
+            <div class="price">300.000 đ</div>
+            <div class="quantity"><input type="number" placeholder="2"
+                    style="width: 50%; text-align: center;"></div>
+            <div class="total">600.000 đ</div>
+            <div class="delete">Xóa</div>
+        </div> -->
+    </div>
+    <div class="totalMoney">
+        <h5>Tổng tiền cần thanh toán.</h5>
+        <p id="tien"></p>
+    </div>
+
+    <script>
+        var cart = JSON.parse(localStorage.getItem('cart')) || [];
+        console.log(cart);
+
+        const cartItemsContainer = document.getElementById('container');
+        const totalMoneyElement = document.getElementById('tien');
+
+        cart.forEach((item, index) => {
+            const productDiv = document.createElement('div');
+            productDiv.innerHTML = `
+            <div class="content">
+            <div class="infor">
+            <img src="${item.img}" alt="${item.name}">
+            <h5>${item.name}</h5>
+            <p>Size: M</p>
+            </div>
+            <div class="price" id="price">${item.price}</div>
+            <div class="quantity">
+                <input id="quan" type="number" placeholder="${item.quantity}"
+                style="width: 50%; text-align: center;"
+                value="${item.quantity}"
+                onchange="handleQuantityChange(${index}, this.value, event)">
+                </div>
+            <div class="total" id="total">${item.price}</div>
+            <div class="delete" onclick="remove(${cart.indexOf(item)})">Xóa</div>
+            </div>`;
+            cartItemsContainer.appendChild(productDiv);
+        });
+
+        
+        function updateTotal() {
+            let total = 0;
+            cart.forEach(item => {
+                total += parseInt(item.price) * item.quantity;
+            });
+
+            totalMoneyElement.innerText = total.toFixed(3) + ' ₫';
+        }
+
+        function handleQuantityChange(index, newQuantity, event) {
+            // Cập nhật số lượng trong mảng cart
+            cart[index].quantity = newQuantity;
+
+            // Lưu lại giỏ hàng vào localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+            // Cập nhật lại tổng tiền
+            updateTotal();
+            const quantityInput = document.getElementById('quan');
+            const totalElement = document.getElementById('total');
+            const priceElement = document.getElementById('price');
+            quantityInput.addEventListener('input', function () {
+                // Get the current quantity value
+                const quantity = parseInt(quantityInput.value);
+                const price = parseInt(priceElement.textContent);
+
+                // Set the price based on the quantity
+                const total = price * quantity;
+
+                // Update the h3 element to display the new price
+                totalElement.innerHTML = total.toFixed(3)+" ₫";
+            });
+
+        }
+
+
+        function remove(index) {
+            // Hiển thị hộp thoại xác nhận
+            const isConfirmed = confirm("Bạn có chắc chắn muốn xóa mục này khỏi giỏ hàng không?");
+
+            // Nếu người dùng chọn OK trong hộp thoại xác nhận
+            if (isConfirmed) {
+                // Xóa mục tại vị trí index từ mảng cart
+                cart.splice(index, 1);
+
+                // Lưu lại giỏ hàng vào localStorage
+                localStorage.setItem('cart', JSON.stringify(cart));
+
+                // Làm mới lại trang để cập nhật giao diện
+                location.reload();
+            }
+        }
+
+        updateTotal();
+    </script>
+
+
+</body>
+
+</html>

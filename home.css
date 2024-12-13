@@ -1,0 +1,275 @@
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+header {
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 70px;
+    background-color: rgb(240, 240, 240);
+ 
+    z-index: 1000;
+}
+
+header .logo {
+    width: 20%;
+    height: max-content;
+    text-align: center;
+    padding: 10px;
+}
+
+header .logo img {
+    width: auto;
+    height: 45px;
+}
+
+.menu {
+    width: 50%;
+    /* Adjusted width */
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu ul {
+    list-style: none;
+    display: flex;
+    text-decoration: none;
+
+}
+
+.menu li {
+    margin: 0 10px;
+    margin-right: 50px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.menu a:hover {
+    font-weight: bold;
+}
+
+header .Top_Right {
+    position: relative;
+    display: flex;
+    align-items: center;
+    align-self: flex-start;
+    height: 70px;
+    width: 30%;
+    margin-left: auto;
+}
+
+.Top_Right .cart img {
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+}
+
+.Top_Right .search {
+    margin-right: 10px;
+}
+
+.Top_Right .search input {
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    width: 150px;
+}
+
+.Top_Right .DangNhap {
+    display: flex;
+    align-items: center;
+}
+
+.Top_Right .DangNhap a {
+    margin-left: 10px;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+.Top_Right .DangNhap a:hover {
+    color: rgb(110, 110, 110);
+
+}
+
+.banner {
+    position: static;
+}
+
+.banner img {
+    width: 100%;
+    height: auto;
+    margin-top: 70px;
+
+}
+
+.pre,
+.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: cornflowerblue;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    z-index: 1;
+    width: 30px;
+    height: 30px;
+
+}
+
+.pre {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+    transform: translateY(-50%) scaleX(-1);
+}
+
+article {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    width: 98%;
+    padding: 0 5px;
+}
+
+.product {
+    position: relative;
+    text-align: center;
+    padding: 10px;
+    width: 94%;
+    height: 350px;
+}
+
+.product img {
+    width: 100%;
+    height: 75%;
+    object-fit: cover;
+}
+
+.product h3 {
+    margin: 10px 0;
+    font-family: sans-serif;
+
+}
+
+.product p {
+    font-weight: bold;
+    margin-bottom: auto;
+    color: #333;
+    font-family: monospace;
+    font-size: 14px;
+}
+
+.product:hover {
+    background-color: #e7e7e7;
+}
+
+.product:hover img {
+    filter: brightness(90%);
+}
+
+.product-buttons {
+    display: none;
+    /* display: flex; */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.product-buttons button {
+    height: 40px;
+    width: 180px;
+    margin: 5px;
+    font-size: 18px;
+    border: 0.5px solid rgb(182, 165, 165);
+    border-radius: 5px;
+    background-color: rgb(244, 221, 221);
+    color: black;
+    font-family: 'Times New Roman', Times, serif;
+}
+.product-buttons button:hover{
+    background-color: rgb(255, 244, 244);
+
+}
+
+.see-more {
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    display: block;
+    border: 1px solid rgb(231, 231, 231);
+}
+
+
+.see-more:hover {
+    border: 1px solid rgb(162, 162, 162);
+
+}
+
+.bottomBanner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.bottomBanner img {
+    width: 100%;
+    height: auto;
+}
+
+
+.footer {
+    background-color: #eaeaea;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    text-align: center;
+}
+
+.footer-column {
+    padding: 10px;
+}
+
+.footer h3 {
+    margin-bottom: 10px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: gray;
+
+}
+
+.footer p {
+    line-height: 1.6;
+}
+
+.footer a {
+    text-decoration: none;
+    color: black;
+}

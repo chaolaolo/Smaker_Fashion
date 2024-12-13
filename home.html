@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Home</title>
+    <link rel="SHORTCUT ICON" href="image/logo.png" type="image/x-icon" />
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style></style>
+</head>
+
+<body onload="Start()">
+    <header>
+        <div class="logo">
+            <img src="image/logo.png" alt="">
+        </div>
+        <div class="menu">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="#">Shop</a></li>
+                <li><a href="#">Sale</a></li>
+                <li><a href="#">NEWS</a></li>
+                <li><a href="#">Contact Us</a></li>
+
+            </ul>
+        </div>
+        <div class="Top_Right">
+            <div class="cart"><a href="Cart.html"><img src="image/cart.png" alt=""></a></div>
+            <div class="search">
+            </div>
+            <div class="DangNhap" id="dangNhapLink">
+                <a href="DangNhap.html">Đăng nhập</a>
+                <a href="#">|</a>
+                <a href="DangKy.html">Đăng ký</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="banner">
+        <p>
+            <input class="pre" type="image" src="image/previous.png" alt="pre" onclick="previous()">
+            <input class="next" type="image" src="image/previous.png" alt="next" onclick="next()">
+        </p>
+        <img src="image/banner1.jpg" alt="" id="imgbanner">
+    </div>
+
+    <h1
+        style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; font-weight: 200; text-align: center; margin: 20px;">
+        Products</h1>
+    <article>
+
+        <div class="product">
+            <img id="img" src="image/product1.jpg" alt="Product 1">
+            <h3 id="name">SPLASHED FLARE JEANS IN TAN</h3>
+            <p id="price">800.000 đ</p>
+            <p id="quantity" style="display: none;">1</p>
+            <div class="product-buttons">
+                <button onclick="addToCart('img','name','price','quantity')">Thêm vào giỏ
+                        hàng</button>
+                <button onclick="viewDetails('img','name','price','quantity')">Xem chi tiết</button>
+            </div>
+        </div>
+
+        <div class="product">
+            <img id="img1" src="image/product2.jpg" alt="Product 2">
+            <h3 id="name1">$MAKER NUCLEAR BOMB" TEE IN BLACK</h3>
+            <p id="price1">450.000 đ</p>
+            <p id="quantity1" style="display: none;">1</p>
+            <div class="product-buttons">
+               <button onclick="addToCart('img1','name1','price1','quantity1')">Thêm vào
+                        giỏ
+                        hàng</button>
+                 <button onclick="viewDetails('img1','name1','price1','quantity1')">Xem chi tiết</button>
+            </div>
+        </div>
+
+        <div class="product">
+            <img id="img2" src="image/product3.jpg" alt="Product 1">
+            <h3 id="name2">TETVOVEN MERCH" MONEY ISLAND TEE IN CREAM</h3>
+            <p id="price2">550.000 đ</p>
+            <p id="quantity2" style="display: none;">1</p>
+            <div class="product-buttons">
+                <button onclick="addToCart('img2','name2','price2','quantity2')">Thêm vào
+                        giỏ
+                        hàng</button>
+                <button onclick="viewDetails('img2','name2','price2','quantity2')">Xem chi tiết</button>
+            </div>
+        </div>
+
+        <div class="product">
+            <img id="img3" src="image/product4.jpg" alt="Product 2">
+            <h3 id="name3">TENVOVEN MERCH" MONEY ISLAND SHORTS IN CREAM</h3>
+            <p id="price3">550.000 đ</p>
+            <p id="quantity3" style="display: none;">1</p>
+            <div class="product-buttons">
+                <button onclick="addToCart('img3','name3','price3','quantity3')">Thêm vào
+                        giỏ
+                        hàng</button>
+                 <button onclick="viewDetails('img3','name3','price3','quantity3')">Xem chi tiết</button>
+            </div>
+        </div>
+        <div class="product">
+            <img id="img4" src="image/product5.jpg" alt="Product 1">
+            <h3 id="name4">LOGO CORNROW" TEE IN WHITE</h3>
+            <p id="price4">500.000 đ</p>
+            <p id="quantity4" style="display: none;">1</p>
+            <div class="product-buttons">
+                <button onclick="addToCart('img4','name4','price4','quantity4')">Thêm vào
+                        giỏ
+                        hàng</button>
+                 <button onclick="viewDetails('img4','name4','price4','quantity4')">Xem chi tiết</button>
+            </div>
+        </div>
+
+        <div class="product">
+            <img id="img5" src="image/product6.jpg" alt="Product 2">
+            <h3 id="name5">"MONEY COLLECTOR" HOODIE DOUBLE ZIPS IN BLACK</h3>
+            <p id="price5">650.000 đ</p>
+            <p id="quantity5" style="display: none;">1</p>
+            <div class="product-buttons">
+               <button onclick="addToCart('img5','name5','price5','quantity5')">Thêm vào
+                        giỏ
+                        hàng</button>
+                <button onclick="viewDetails('img5','name5','price5','quantity5')">Xem chi tiết</button>
+            </div>
+        </div>
+
+        <div class="product">
+            <img id="img6" src="image/product7.jpg" alt="Product 1">
+            <h3 id="name6">SPLASHED LOGO WASHED SWEATER IN GREY</h3>
+            <p id="price6">700.000 đ</p>
+            <p id="quantity6" style="display: none;">1</p>
+            <div class="product-buttons">
+                <button onclick="addToCart('img6','name6','price6','quantity6')">Thêm vào
+                        giỏ
+                        hàng</button>
+                 <button onclick="viewDetails('img6','name6','price6','quantity6')">Xem chi tiết</button>
+            </div>
+        </div>
+
+        <div class="product">
+            <img id="img7" src="image/product8.jpg" alt="Product 2">
+            <h3 id="name7">LOGO PUFFER VEST IN BLACK</h3>
+            <p id="price7">700.000 đ</p>
+            <p id="quantity7" style="display: none;">1</p>
+            <div class="product-buttons">
+                <button onclick="addToCart('img7','name7','price7','quantity7')">Thêm vào
+                        giỏ
+                        hàng</button>
+                 <button onclick="viewDetails('img7','name7','price7','quantity7')">Xem chi tiết</button>
+            </div>
+        </div>
+        <div class="product">
+            <img id="img8" src="image/product9.jpg" alt="Product 1">
+            <h3 id="name8">"I GOT MONEY IN SAUDI" TRUCK HAT IN GREEN</h3>
+            <p id="price8">800.000 đ</p>
+            <p id="quantity8" style="display: none;">1</p>
+            <div class="product-buttons">
+                <button onclick="addToCart('img8','name8','price8','quantity8')">Thêm vào
+                        giỏ
+                        hàng</button>
+                 <button onclick="viewDetails('img8','name8','price8','quantity8')">Xem chi tiết</button>
+            </div>
+        </div>
+
+        <div class="product">
+            <img id="img9" src="image/product10.jpg" alt="Product 2">
+            <h3 id="name9">DISTRESSED FLARE DENIM IN BLUE</h3>
+            <p id="price9">300.000 đ</p>
+            <p id="quantity9" style="display: none;">1</p>
+            <div class="product-buttons">
+                <button onclick="addToCart('img9','name9','price9','quantity9')">Thêm vào
+                        giỏ
+                        hàng</button>
+                <button onclick="viewDetails('img9','name9','price9','quantity9')">Xem chi tiết</button>
+            </div>
+        </div>
+    </article>
+    <button class="see-more">See More</button>
+
+    <div class="bottomBanner">
+        <img src="image/btBanner.jpg" alt="">
+    </div>
+
+    <div class="footer">
+        <div class="footer-column">
+            <h3>INFORMATION</h3>
+            <p><span style="color:#000000;"><span style="font-size:14px;">Saigon: 173 Huỳnh Văn Bánh
+                        - Dist. Phú Nhuận - 0773 648 867</span></span></p>
+            <p><span style="color:#000000;"><span style="font-size:14px;">Hanoi: 974 Đường Láng -
+                        Dist. Đống Đa - 0975 190 369</span></span></p>
+            <p><span style="color:#000000;"><span
+                        style="font-size: 14px;">smakerclothing@gmail.com</span></span></p>
+        </div>
+        <div class="footer-column">
+            <h3>Quick links</h3>
+            <p><span style="color:#000000;"><span style="font-size:14px;">New Arrival</span></span>
+            </p>
+            <p><span style="color:#000000;"><span style="font-size:14px;">Store</span></span></p>
+            <p><span style="color:#000000;"><span style="font-size:14px;">Look book</span></span>
+            </p>
+            <p><span style="color:#000000;"><span style="font-size:14px;">News</span></span></p>
+
+        </div>
+        <div class="footer-column">
+            <h3>SERVICE</h3>
+            <p><span style="color:#000000;"><span style="font-size:14px;">Hướng dẫn mua
+                        hàng</span></span></p>
+            <p><span style="color:#000000;"><span style="font-size:14px;">Quy cách đổi
+                        hàng</span></span></p>
+        </div>
+        <div class="footer-column">
+            <h3>Contact</h3>
+
+            <div class="lienket">
+                <a href="https://www.facebook.com/smakerclothing/" target="_blank">
+                    <i class="">facebook</i>
+                </a>
+                <a href="https://www.instagram.com/smakerclothing/" target="_blank">
+                    <i class="">instagram</i>
+                </a><br>
+                <a href="https://www.instagram.com/smakerclothing/" target="_blank">
+                    <i class="">shopee</i>
+                </a>
+            </div>
+            <b><i>@smakerclothing</i></b>
+
+        </div>
+        </div>
+    </div>
+
+    <script src="SlideShowBanner.js"></script>
+
+    <script src="home.js"></script>
+    <script src="Cart.js"></script>
+
+
+</body>
+
+</html>

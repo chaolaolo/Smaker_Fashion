@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng Nhập</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        header {
+            position: fixed;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            height: 70px;
+            background-color: rgb(240, 240, 240);
+            z-index: 1000;
+        }
+
+        header .logo {
+            width: 20%;
+            height: max-content;
+            text-align: center;
+            padding: 10px;
+        }
+
+        header .logo img {
+            width: auto;
+            height: 45px;
+        }
+
+        .DangNhap {
+            font-family: Arial, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            width: 50%;
+            height: max-content;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .title {
+            font-size: 30px;
+            text-align: center;
+            color: rgb(39, 127, 130);
+        }
+
+        .DangKy {
+            margin-top: 20px;
+
+        }
+
+        .DangKy a {
+            color: rgb(130, 170, 203);
+            font-weight: 300;
+        }
+
+        input {
+            display: block;
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin: 10px 0 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #efefef;
+            color: black;
+            width: 100%;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: rgb(229, 235, 240);
+            border: 0.2px solid rgb(230, 230, 230)
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <a href="home.html"><img src="image/logo.png" alt=""></a>
+
+        </div>
+    </header>
+    <div class="DangNhap">
+        <form name="form" onsubmit="return validate(event)">
+            <label class="title" for="title">Đăng nhập bằng tài khoản của bạn!</label>
+            <input type="text" id="username" name="username" placeholder="Tên đăng nhập">
+            <h6 id="errusername" style="width: 100%; color: red; margin: 5px; text-align: left;">
+            </h6>
+            <input type="text" id="emailOrPhone" name="emailOrPhone"
+                placeholder="Email/Số điện thoại">
+            <h6 id="erremailOrPhone"
+                style="width: 100%; color: red; margin: 5px; text-align: left;"></h6>
+            <input type="password" id="password" name="password" placeholder="Mật khẩu">
+            <h6 id="errpassword" style="width: 100%; color: red; margin: 5px; text-align: left;">
+            </h6>
+            <input type="submit" value="Đăng Nhập">
+            <label class="DangKy" for="DangKy"><a href="DangKy.html">Đăng ký tài khoản</a></label>
+        </form>
+
+        <script>
+            function validate(event) {
+                event.preventDefault();
+                var status = true;
+                var username = document.form.username.value;
+                var emailOrPhone = document.form.emailOrPhone.value;
+                var password = document.form.password.value;
+
+                const usernameRegex = new RegExp("^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]+$");
+
+                const sdtRegex = new RegExp("0\\d{9,10}", "g");//số dt bắt đầu 0, chứa 10 or 11 số
+                const emailRegex = new RegExp("\\w+@\\w+(\\.\\w+){1,2}", "g");
+                const passwordRegex = new RegExp("^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$");
+
+
+                if (username == "") {
+                    document.getElementById("errusername").innerHTML = "vui long nhap ten!";
+                    status = false;
+                } else {
+                    if (!username.match(usernameRegex)) {
+                        document.getElementById("errusername").innerHTML = "Sai định dạng!";
+                        status = false;
+                    } else {
+                        document.getElementById("errusername").innerHTML = "";
+                        // status = true;
+                    }
+                }
+
+                if (emailOrPhone == "") {
+                    document.getElementById("erremailOrPhone").innerHTML = "vui long email hoac so dien thoai!";
+                    status = false;
+                } else {
+                    if (emailOrPhone.match(sdtRegex) || emailOrPhone.match(emailRegex)) {
+                        document.getElementById("erremailOrPhone").innerHTML = "";
+                        // status = true;
+                    } else {
+
+                        document.getElementById("erremailOrPhone").innerHTML = "Sai định dạng!";
+                        status = false;
+                    }
+                }
+
+                if (password == "") {
+                    document.getElementById("errpassword").innerHTML = "vui long mat khau!";
+                    status = false;
+                } else {
+                    if (!password.match(passwordRegex)) {
+                        document.getElementById("errpassword").innerHTML = "Sai định dạng!";
+                        status = false;
+                    } else {
+                        document.getElementById("errpassword").innerHTML = "";
+                        // status = true;
+                    }
+                }
+
+
+
+
+
+                if (status) {
+                    alert("Đăng nhập thành công!")
+                    window.location.href = 'home.html';
+                    // Lưu trạng thái đăng nhập vào localStorage
+                    localStorage.setItem('isLoggedIn', 'true');
+                }
+                return status;
+
+            }
+
+
+
+        </script>
+    </div>
+</body>
+
+</html>
